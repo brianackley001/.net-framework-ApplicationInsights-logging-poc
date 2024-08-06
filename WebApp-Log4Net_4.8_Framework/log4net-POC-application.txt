@@ -1,0 +1,48 @@
+2024-08-06 06:54:58,814 [6] INFO  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Index View loaded
+2024-08-06 06:54:59,035 [6] ERROR WebApp_Log4Net_4._8_Framework.Controllers.HomeController - Dummy Null Refrence Exception on Index View
+System.NullReferenceException: Dummy Null Refrence Exception on Index View
+   at WebApp_Log4Net_4._8_Framework.Controllers.HomeController.Index() in C:\Users\jaundice\Source\Repos\app-insights-4x-framework-log4net\WebApp-Log4Net_4.8_Framework\Controllers\HomeController.cs:line 23
+2024-08-06 06:54:59,047 [6] DEBUG WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Index View DEBUG statement
+2024-08-06 06:54:59,047 [6] WARN  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Index View WARN statement
+2024-08-06 06:55:04,364 [6] INFO  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, About View loaded
+2024-08-06 06:55:04,482 [6] ERROR WebApp_Log4Net_4._8_Framework.Controllers.HomeController - Dummy Null Refrence Exception on Index View
+System.NullReferenceException: Dummy Null Refrence Exception on Index View
+   at WebApp_Log4Net_4._8_Framework.Controllers.HomeController.About() in C:\Users\jaundice\Source\Repos\app-insights-4x-framework-log4net\WebApp-Log4Net_4.8_Framework\Controllers\HomeController.cs:line 41
+2024-08-06 06:55:04,482 [6] DEBUG WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, About View DEBUG statement
+2024-08-06 06:55:04,482 [6] WARN  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, About View WARN statement
+2024-08-06 06:55:04,945 [11] INFO  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Contact View loaded
+2024-08-06 06:55:05,063 [11] ERROR WebApp_Log4Net_4._8_Framework.Controllers.HomeController - Dummy Null Refrence Exception on Contact View
+System.NullReferenceException: Dummy Null Refrence Exception on Contact View
+   at WebApp_Log4Net_4._8_Framework.Controllers.HomeController.Contact() in C:\Users\jaundice\Source\Repos\app-insights-4x-framework-log4net\WebApp-Log4Net_4.8_Framework\Controllers\HomeController.cs:line 61
+2024-08-06 06:55:05,064 [11] DEBUG WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Contact View DEBUG statement
+2024-08-06 06:55:05,064 [11] WARN  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Contact View WARN statement
+2024-08-06 06:55:05,610 [10] INFO  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Index View loaded
+2024-08-06 06:55:05,716 [10] ERROR WebApp_Log4Net_4._8_Framework.Controllers.HomeController - Dummy Null Refrence Exception on Index View
+System.NullReferenceException: Dummy Null Refrence Exception on Index View
+   at WebApp_Log4Net_4._8_Framework.Controllers.HomeController.Index() in C:\Users\jaundice\Source\Repos\app-insights-4x-framework-log4net\WebApp-Log4Net_4.8_Framework\Controllers\HomeController.cs:line 23
+2024-08-06 06:55:05,716 [10] DEBUG WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Index View DEBUG statement
+2024-08-06 06:55:05,716 [10] WARN  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Index View WARN statement
+2024-08-06 06:55:05,986 [11] INFO  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, About View loaded
+2024-08-06 06:55:06,092 [11] ERROR WebApp_Log4Net_4._8_Framework.Controllers.HomeController - Dummy Null Refrence Exception on Index View
+System.NullReferenceException: Dummy Null Refrence Exception on Index View
+   at WebApp_Log4Net_4._8_Framework.Controllers.HomeController.About() in C:\Users\jaundice\Source\Repos\app-insights-4x-framework-log4net\WebApp-Log4Net_4.8_Framework\Controllers\HomeController.cs:line 41
+2024-08-06 06:55:06,092 [11] DEBUG WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, About View DEBUG statement
+2024-08-06 06:55:06,092 [11] WARN  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, About View WARN statement
+2024-08-06 06:55:06,426 [10] INFO  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Contact View loaded
+2024-08-06 06:55:06,536 [10] ERROR WebApp_Log4Net_4._8_Framework.Controllers.HomeController - Dummy Null Refrence Exception on Contact View
+System.NullReferenceException: Dummy Null Refrence Exception on Contact View
+   at WebApp_Log4Net_4._8_Framework.Controllers.HomeController.Contact() in C:\Users\jaundice\Source\Repos\app-insights-4x-framework-log4net\WebApp-Log4Net_4.8_Framework\Controllers\HomeController.cs:line 61
+2024-08-06 06:55:06,537 [10] DEBUG WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Contact View DEBUG statement
+2024-08-06 06:55:06,537 [10] WARN  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Contact View WARN statement
+2024-08-06 06:55:06,888 [12] INFO  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, About View loaded
+2024-08-06 06:55:06,994 [12] ERROR WebApp_Log4Net_4._8_Framework.Controllers.HomeController - Dummy Null Refrence Exception on Index View
+System.NullReferenceException: Dummy Null Refrence Exception on Index View
+   at WebApp_Log4Net_4._8_Framework.Controllers.HomeController.About() in C:\Users\jaundice\Source\Repos\app-insights-4x-framework-log4net\WebApp-Log4Net_4.8_Framework\Controllers\HomeController.cs:line 41
+2024-08-06 06:55:06,994 [12] DEBUG WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, About View DEBUG statement
+2024-08-06 06:55:06,994 [12] WARN  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, About View WARN statement
+2024-08-06 06:55:07,359 [10] INFO  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Index View loaded
+2024-08-06 06:55:07,461 [10] ERROR WebApp_Log4Net_4._8_Framework.Controllers.HomeController - Dummy Null Refrence Exception on Index View
+System.NullReferenceException: Dummy Null Refrence Exception on Index View
+   at WebApp_Log4Net_4._8_Framework.Controllers.HomeController.Index() in C:\Users\jaundice\Source\Repos\app-insights-4x-framework-log4net\WebApp-Log4Net_4.8_Framework\Controllers\HomeController.cs:line 23
+2024-08-06 06:55:07,461 [10] DEBUG WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Index View DEBUG statement
+2024-08-06 06:55:07,461 [10] WARN  WebApp_Log4Net_4._8_Framework.Controllers.HomeController - HomeController, Index View WARN statement

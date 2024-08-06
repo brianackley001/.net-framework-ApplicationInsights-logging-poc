@@ -20,11 +20,6 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
             return View("Index");
         }
 
-        public void Event_Btn_Click(Object sender,
-                               EventArgs e)
-        {
-            Logger.TrackEvent(e.ToString());
-        }
         public ActionResult Index()
         {
             Logger.TrackPageView("Home");

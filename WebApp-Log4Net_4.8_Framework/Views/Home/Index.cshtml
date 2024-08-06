@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+    </section>
+
+    <div class="row">
+        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+            <h2 id="gettingStartedTitle">Track Custom Event 1</h2>
+            @using (Html.BeginForm("TrackEvent", "Home"))
+            {
+
+                <input id="Text1" type="hidden" name="Text1" value="Custom Event #1" />
+                <input id="Button1" type="submit" value="Event #1" class="btn btn-primary btn-md" />
+            }
+        </section>
+        <section class="col-md-4" aria-labelledby="librariesTitle">
+            <h2 id="librariesTitle">Track Custom Event 2</h2>
+            @using (Html.BeginForm("TrackEvent", "Home"))
+            {
+
+                <input id="Text1" type="hidden" name="Text1" value="Custom Event Two (2)" />
+                <input id="Button1" type="submit" value="Event #2" class="btn btn-primary btn-md" />
+            }
+        </section>
+        <section class="col-md-4" aria-labelledby="hostingTitle">
+            <h2 id="hostingTitle">Track Custom Event AbcXyzPebcak</h2>
+            @using (Html.BeginForm("TrackEvent", "Home"))
+            {
+
+                <input id="Text1" type="hidden" name="Text1" value="Custom Event AbcXyzPebcak" />
+                <input id="Button1" type="submit" value="AbcXyzPebcak Event" class="btn btn-primary btn-md" />
+            }
+        </section>
+    </div>
+</main>
