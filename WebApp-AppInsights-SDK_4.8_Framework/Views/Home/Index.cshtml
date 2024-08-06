@@ -1,6 +1,11 @@
 ﻿@{
+    
     ViewBag.Title = "Home Page";
+
+   
 }
+
+
 
 <main>
     <section class="row" aria-labelledby="aspnetTitle">
@@ -11,23 +16,31 @@
 
     <div class="row">
         <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            <h2 id="gettingStartedTitle">Track Custom Event 1</h2>
+            @using (Html.BeginForm("TrackEvent", "Home"))
+            {
+
+                <input id="Text1" type="hidden" name="Text1" value="Custom Event #1" />
+                <input id="Button1" type="submit" value="Event #1" class="btn btn-primary btn-md" />
+            }
         </section>
         <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            <h2 id="librariesTitle">Track Custom Event 2</h2>
+            @using (Html.BeginForm("TrackEvent", "Home"))
+            {
+
+                <input id="Text1" type="hidden" name="Text1" value="Custom Event Two (2)" />
+                <input id="Button1" type="submit" value="Event #2" class="btn btn-primary btn-md" />
+            }
         </section>
         <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            <h2 id="hostingTitle">Track Custom Event AbcXyzPebcak</h2>
+            @using (Html.BeginForm("TrackEvent", "Home"))
+            {
+
+                <input id="Text1" type="hidden" name="Text1" value="Custom Event AbcXyzPebcak" />
+                <input id="Button1" type="submit" value="AbcXyzPebcak Event" class="btn btn-primary btn-md" />
+            }
         </section>
     </div>
 </main>

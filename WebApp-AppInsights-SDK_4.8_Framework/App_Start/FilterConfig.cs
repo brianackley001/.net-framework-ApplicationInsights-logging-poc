@@ -7,7 +7,8 @@ namespace WebApp_AppInsights_SDK_4._8_Framework
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            //filters.Add(new HandleErrorAttribute()); 
+            filters.Add(new ErrorHandler.AiHandleErrorAttribute());
         }
     }
 }
