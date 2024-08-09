@@ -396,3 +396,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/WebApp-Log4Net_4.8_Framework/log4net-POC-application.txt

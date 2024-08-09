@@ -1,8 +1,5 @@
 ﻿using Microsoft.ApplicationInsights;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace WebApp_AppInsights_SDK_4._8_Framework.ErrorHandler
