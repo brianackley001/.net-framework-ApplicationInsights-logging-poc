@@ -7,13 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsoleApplications", "Cons
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApplications", "WebApplications", "{3DA5D632-DAEC-413F-9D55-D31A37130333}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp-4.8_.NET_Framework", "ConsoleApp-4.8_.NET_Framework\ConsoleApp-4.8_.NET_Framework.csproj", "{83706E10-214F-4073-A444-714A030DC0FD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadTestVolumeLogging-ConsoleApp", "LoadTestVolumeLogging-ConoleApp\LoadTestVolumeLogging-ConsoleApp.csproj", "{5C907AB1-3E86-4A9F-801E-973C5C3A1B46}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp-Log4Net_4.8_Framework", "WebApp-Log4Net_4.8_Framework\WebApp-Log4Net_4.8_Framework.csproj", "{92E7FA59-FC95-4950-8ECB-420268EB1CA4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp-AppInsights-SDK_4.8_Framework", "WebApp-AppInsights-SDK_4.8_Framework\WebApp-AppInsights-SDK_4.8_Framework.csproj", "{81449BBD-B915-4EDF-B483-377E62ED4CAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadTest-API", "LoadTest-API\LoadTest-API.csproj", "{FBF99809-885C-42D1-A54E-BE9C8A103884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp-NLog_4.8_Framework", "WebApp-NLog_4.8_Framework\WebApp-NLog_4.8_Framework.csproj", "{60A74B6A-BA88-4A0B-8E80-31C9B137E296}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{83706E10-214F-4073-A444-714A030DC0FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{83706E10-214F-4073-A444-714A030DC0FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{83706E10-214F-4073-A444-714A030DC0FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{83706E10-214F-4073-A444-714A030DC0FD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C907AB1-3E86-4A9F-801E-973C5C3A1B46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C907AB1-3E86-4A9F-801E-973C5C3A1B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C907AB1-3E86-4A9F-801E-973C5C3A1B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,15 +35,24 @@ Global
 		{81449BBD-B915-4EDF-B483-377E62ED4CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81449BBD-B915-4EDF-B483-377E62ED4CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81449BBD-B915-4EDF-B483-377E62ED4CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBF99809-885C-42D1-A54E-BE9C8A103884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBF99809-885C-42D1-A54E-BE9C8A103884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBF99809-885C-42D1-A54E-BE9C8A103884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBF99809-885C-42D1-A54E-BE9C8A103884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60A74B6A-BA88-4A0B-8E80-31C9B137E296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60A74B6A-BA88-4A0B-8E80-31C9B137E296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60A74B6A-BA88-4A0B-8E80-31C9B137E296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60A74B6A-BA88-4A0B-8E80-31C9B137E296}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{83706E10-214F-4073-A444-714A030DC0FD} = {E06255C0-A878-45D5-95A2-85CCC8A4DAEC}
 		{5C907AB1-3E86-4A9F-801E-973C5C3A1B46} = {E06255C0-A878-45D5-95A2-85CCC8A4DAEC}
 		{92E7FA59-FC95-4950-8ECB-420268EB1CA4} = {3DA5D632-DAEC-413F-9D55-D31A37130333}
 		{81449BBD-B915-4EDF-B483-377E62ED4CAF} = {3DA5D632-DAEC-413F-9D55-D31A37130333}
+		{FBF99809-885C-42D1-A54E-BE9C8A103884} = {3DA5D632-DAEC-413F-9D55-D31A37130333}
+		{60A74B6A-BA88-4A0B-8E80-31C9B137E296} = {3DA5D632-DAEC-413F-9D55-D31A37130333}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {879D063D-8081-4565-AB8D-43F947C78210}

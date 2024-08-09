@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+
+namespace WebApp_NLog_4._8_Framework
+{
+    public class MvcApplication : System.Web.HttpApplication
+    {
+
+        private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            _logger.Info("Application Started");
+        }
+    }
+}
