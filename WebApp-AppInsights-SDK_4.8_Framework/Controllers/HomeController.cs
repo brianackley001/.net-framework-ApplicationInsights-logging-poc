@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
-using Microsoft.ApplicationInsights;
 using WebApp_AppInsights_SDK_4._8_Framework.Logging;
 
 
@@ -12,11 +8,20 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
 {
     public class HomeController : Controller
     {
+        private Random _random = new Random();
+
         [HttpPost]
         public ActionResult TrackEvent()
         {
             string formValue = Request.Form["Text1"];
-            Logger.TrackEvent(formValue);
+            Dictionary<string, string> properties = new Dictionary<string, string>
+                {
+                    {"EventParameter1", $"Value-{_random.Next(100, 900000)}" },
+                    {"EventParameter2", $"Value-{_random.Next(100, 900000)}"  },
+                    {"EventParameter3", $"Value-{_random.Next(100, 900000)}"  },
+                    {"EventParameterX", $"Value-{_random.Next(100, 900000)}"  }
+                };
+            Logger.TrackEvent(formValue, properties);
             return View("Index");
         }
 

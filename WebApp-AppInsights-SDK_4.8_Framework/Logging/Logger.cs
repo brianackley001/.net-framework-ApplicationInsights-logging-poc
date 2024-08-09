@@ -1,6 +1,5 @@
 ﻿using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.DataContracts;
-using Microsoft.ApplicationInsights.Extensibility;
 using System;
 using System.Collections.Generic;
 
@@ -29,9 +28,9 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Logging
         {
             AppInsights.TrackTrace(message, SeverityLevel.Information, properties: null);
         }
-        public static void TrackEvent(string name)
+        public static void TrackEvent(string name, Dictionary<string, string> properties)
         {
-            AppInsights.TrackEvent(name);
+            AppInsights.TrackEvent(name, properties);
         }
         public static void TrackException(Exception exception, Dictionary<string, string> properties)
         {
