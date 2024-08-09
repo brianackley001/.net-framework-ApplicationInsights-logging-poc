@@ -27,6 +27,15 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
 
         public ActionResult Index()
         {
+            var traceProperties = new Dictionary<string, string>()
+                {
+                    { "Location", "HomeController" },
+                    {"TraceParameter1", $"Value-{_random.Next(100, 900000)}" },
+                    {"TraceParameter2", $"Value-{_random.Next(100, 900000)}"  },
+                    {"TracenParameter3", $"Value-{_random.Next(100, 900000)}"  },
+                    {"TraceParameterX", $"Value-{_random.Next(100, 900000)}"  }
+                };
+            Logger.TrackTrace($"SDK TRACE - Home.Index", traceProperties);
             Logger.TrackPageView("Home");
             try
             {
@@ -36,7 +45,11 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
             {
                 var properties = new Dictionary<string, string>()
                 {
-                    { "Location", "HomeController" }
+                    { "Location", "HomeController" },
+                    {"ExceptionParameter1", $"Value-{_random.Next(100, 900000)}" },
+                    {"ExceptionParameter2", $"Value-{_random.Next(100, 900000)}"  },
+                    {"ExceptionParameter3", $"Value-{_random.Next(100, 900000)}"  },
+                    {"ExceptionParameterX", $"Value-{_random.Next(100, 900000)}"  }
                 };
                 Logger.TrackException(ex, properties);
             }
@@ -47,6 +60,15 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
         {
             ViewBag.Message = "Your application description page.";
             Logger.TrackPageView("About");
+            var traceProperties = new Dictionary<string, string>()
+                {
+                    { "Location", "HomeController" },
+                    {"TraceParameter1", $"Value-{_random.Next(100, 900000)}" },
+                    {"TraceParameter2", $"Value-{_random.Next(100, 900000)}"  },
+                    {"TracenParameter3", $"Value-{_random.Next(100, 900000)}"  },
+                    {"TraceParameterX", $"Value-{_random.Next(100, 900000)}"  }
+                };
+            Logger.TrackTrace($"SDK TRACE - Home.About", traceProperties);
 
             try
             {
@@ -57,6 +79,10 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
                 var properties = new Dictionary<string, string>()
                 {
                     { "Location", "AboutController" },
+                    {"ExceptionParameter1", $"Value-{_random.Next(100, 900000)}" },
+                    {"ExceptionParameter2", $"Value-{_random.Next(100, 900000)}"  },
+                    {"ExceptionParameter3", $"Value-{_random.Next(100, 900000)}"  },
+                    {"ExceptionParameterX", $"Value-{_random.Next(100, 900000)}"  },
                     { "DefaultView", "False" }
                 };
                 Logger.TrackException(ex, properties);
@@ -69,6 +95,15 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
         {
             Logger.TrackPageView("Contact");
             ViewBag.Message = "Your contact page.";
+            var traceProperties = new Dictionary<string, string>()
+                {
+                    { "Location", "HomeController" },
+                    {"TraceParameter1", $"Value-{_random.Next(100, 900000)}" },
+                    {"TraceParameter2", $"Value-{_random.Next(100, 900000)}"  },
+                    {"TracenParameter3", $"Value-{_random.Next(100, 900000)}"  },
+                    {"TraceParameterX", $"Value-{_random.Next(100, 900000)}"  }
+                };
+            Logger.TrackTrace($"SDK TRACE - Home.Contact", traceProperties);
 
             try
             {
@@ -79,6 +114,10 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
                 var properties = new Dictionary<string, string>()
                 {
                     { "Location", "AboutController" },
+                    {"ExceptionParameter1", $"Value-{_random.Next(100, 900000)}" },
+                    {"ExceptionParameter2", $"Value-{_random.Next(100, 900000)}"  },
+                    {"ExceptionParameter3", $"Value-{_random.Next(100, 900000)}"  },
+                    {"ExceptionParameterX", $"Value-{_random.Next(100, 900000)}"  },
                     { "DefaultView", "False" }
                 };
                 Logger.TrackException(ex, properties);

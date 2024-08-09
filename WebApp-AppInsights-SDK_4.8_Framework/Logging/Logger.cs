@@ -26,7 +26,7 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Logging
 
         public static void TrackTrace(string message, Dictionary<string, string> properties)
         {
-            AppInsights.TrackTrace(message, SeverityLevel.Information, properties: null);
+            AppInsights.TrackTrace(message, SeverityLevel.Information, properties);
         }
         public static void TrackEvent(string name, Dictionary<string, string> properties)
         {
