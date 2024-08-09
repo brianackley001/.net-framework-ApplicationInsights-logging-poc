@@ -16,6 +16,7 @@ namespace WebApp_AppInsights_SDK_4._8_Framework
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            UnityConfig.RegisterComponents();
         }
     }
 }

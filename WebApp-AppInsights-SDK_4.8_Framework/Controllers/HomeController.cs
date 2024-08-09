@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.ApplicationInsights;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using WebApp_AppInsights_SDK_4._8_Framework.Logging;
@@ -9,6 +10,14 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
     public class HomeController : Controller
     {
         private Random _random = new Random();
+        private ILogger _logger;
+        private readonly TelemetryClient telemetryClient;
+
+        public HomeController(ILogger logger)
+        {
+            //_random = new Random();
+            _logger = logger;
+        }
 
         [HttpPost]
         public ActionResult TrackEvent()
@@ -21,7 +30,7 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
                     {"EventParameter3", $"Value-{_random.Next(100, 900000)}"  },
                     {"EventParameterX", $"Value-{_random.Next(100, 900000)}"  }
                 };
-            Logger.TrackEvent(formValue, properties);
+            _logger.TrackEvent(formValue, properties);
             return View("Index");
         }
 
@@ -35,8 +44,8 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
                     {"TracenParameter3", $"Value-{_random.Next(100, 900000)}"  },
                     {"TraceParameterX", $"Value-{_random.Next(100, 900000)}"  }
                 };
-            Logger.TrackTrace($"SDK TRACE - Home.Index", traceProperties);
-            Logger.TrackPageView("Home");
+            _logger.TrackTrace($"SDK TRACE - Home.Index", traceProperties);
+            _logger.TrackPageView("Home");
             try
             {
                 throw new NullReferenceException("Dummy Null Refrence Exception on Index View");
@@ -51,7 +60,7 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
                     {"ExceptionParameter3", $"Value-{_random.Next(100, 900000)}"  },
                     {"ExceptionParameterX", $"Value-{_random.Next(100, 900000)}"  }
                 };
-                Logger.TrackException(ex, properties);
+                _logger.TrackException(ex, properties);
             }
             return View();
         }
@@ -59,7 +68,7 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-            Logger.TrackPageView("About");
+            _logger.TrackPageView("About");
             var traceProperties = new Dictionary<string, string>()
                 {
                     { "Location", "HomeController" },
@@ -68,7 +77,7 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
                     {"TracenParameter3", $"Value-{_random.Next(100, 900000)}"  },
                     {"TraceParameterX", $"Value-{_random.Next(100, 900000)}"  }
                 };
-            Logger.TrackTrace($"SDK TRACE - Home.About", traceProperties);
+            _logger.TrackTrace($"SDK TRACE - Home.About", traceProperties);
 
             try
             {
@@ -85,7 +94,7 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
                     {"ExceptionParameterX", $"Value-{_random.Next(100, 900000)}"  },
                     { "DefaultView", "False" }
                 };
-                Logger.TrackException(ex, properties);
+                _logger.TrackException(ex, properties);
             }
 
             return View();
@@ -93,7 +102,7 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
 
         public ActionResult Contact()
         {
-            Logger.TrackPageView("Contact");
+            _logger.TrackPageView("Contact");
             ViewBag.Message = "Your contact page.";
             var traceProperties = new Dictionary<string, string>()
                 {
@@ -103,7 +112,7 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
                     {"TracenParameter3", $"Value-{_random.Next(100, 900000)}"  },
                     {"TraceParameterX", $"Value-{_random.Next(100, 900000)}"  }
                 };
-            Logger.TrackTrace($"SDK TRACE - Home.Contact", traceProperties);
+            _logger.TrackTrace($"SDK TRACE - Home.Contact", traceProperties);
 
             try
             {
@@ -120,7 +129,7 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
                     {"ExceptionParameterX", $"Value-{_random.Next(100, 900000)}"  },
                     { "DefaultView", "False" }
                 };
-                Logger.TrackException(ex, properties);
+                _logger.TrackException(ex, properties);
             }
 
             return View();

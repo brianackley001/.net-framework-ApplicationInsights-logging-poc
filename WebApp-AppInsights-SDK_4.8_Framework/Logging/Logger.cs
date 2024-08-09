@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace WebApp_AppInsights_SDK_4._8_Framework.Logging
 {
-    public static class Logger
+    public class Logger: ILogger
     {
         // Global static instance for App Insights
         private static TelemetryClient _AppInsights;
@@ -19,20 +19,23 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Logging
             }
         }
 
-        public static void TrackPageView(string name)
+        public Logger(TelemetryClient appInsights)
+        {
+        }
+        public  void TrackPageView(string name)
         {
             AppInsights.TrackPageView(name);
         }
 
-        public static void TrackTrace(string message, Dictionary<string, string> properties)
+        public  void TrackTrace(string message, Dictionary<string, string> properties)
         {
             AppInsights.TrackTrace(message, SeverityLevel.Information, properties);
         }
-        public static void TrackEvent(string name, Dictionary<string, string> properties)
+        public  void TrackEvent(string name, Dictionary<string, string> properties)
         {
             AppInsights.TrackEvent(name, properties);
         }
-        public static void TrackException(Exception exception, Dictionary<string, string> properties)
+        public  void TrackException(Exception exception, Dictionary<string, string> properties)
         {
             AppInsights.TrackException(exception, properties);
         }
