@@ -17,6 +17,7 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Controllers
         {
             //_random = new Random();
             _logger = logger;
+            telemetryClient = new TelemetryClient();
         }
 
         [HttpPost]
