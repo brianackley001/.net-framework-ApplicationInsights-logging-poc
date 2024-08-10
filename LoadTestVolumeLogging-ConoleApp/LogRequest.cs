@@ -23,11 +23,17 @@ namespace LoadTestVolumeLogging_ConsoleApp
 
             for (int i = 0; i < count; i++)
             {
-                var sleepValue = _random.Next(1000, 4000);
+                var sleepValue = _random.Next(500, 1500);
                 var requestValue = _random.Next(1, 3500);
                 await Task.Delay(sleepValue);
-
-                await CallApi($"Request-{requestValue}");
+                try
+                {
+                    await CallApi($"Request-{requestValue}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"LogRequest loop exception, iteration {i}: {ex.Message}");
+                }
             }
         }
 

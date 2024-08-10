@@ -26,7 +26,7 @@ namespace LoadTestVolumeLogging_ConsoleApp
 
             for (int i = 0; i < count; i++)
             {
-                var sleepValue = _random.Next(1000, 9000);
+                var sleepValue = _random.Next(100, 900);
                 var randomIndex = _random.Next(1, 9);
                 var pageName = _pageNames.ElementAt(randomIndex).Value;
                 await Task.Delay(sleepValue);

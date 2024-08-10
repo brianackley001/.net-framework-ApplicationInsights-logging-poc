@@ -1,4 +1,5 @@
-﻿using LoadTestVolumeLogging_ConsoleApp;
+﻿using LoadTestVolumeLogging_ConoleApp;
+using LoadTestVolumeLogging_ConsoleApp;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,11 +16,13 @@ namespace LoadTestVolumeLogging_ConsoleApp
         private readonly HttpClient _client = new HttpClient();
         private Random _random;
         private Dictionary<int, string> _eventNames = new Dictionary<int, string>();
+        private Dictionary<int, string> _userIds = new Dictionary<int, string>();
 
 
         public async Task DoWork(int count)
         {
             InitEventNames();
+            InitUserIds();
             _random = new Random();
             _client.BaseAddress = new Uri("https://localhost:7203/");
             _client.DefaultRequestHeaders.Accept.Clear();
@@ -28,23 +31,48 @@ namespace LoadTestVolumeLogging_ConsoleApp
 
             for (int i = 0; i < count; i++)
             {
-                var randomIndex = _random.Next(1, 16);
-                var eventName = _eventNames.ElementAt(randomIndex).Value;
-                var sleepValue = _random.Next(750, 5000);
-                await Task.Delay(sleepValue);
-                await CallApi(eventName);
+                try
+                {
+                    var randomIndex = _random.Next(1, 16);
+                    var eventName = _eventNames.ElementAt(randomIndex).Value;
+                    randomIndex = _random.Next(1, 36);
+                    var userId = _userIds.ElementAt(randomIndex).Value;
+                    var sleepValue = _random.Next(400, 1275);
+                    var properties = new Dictionary<string, string>
+                {
+                    {"UserId", $"{userId}" },
+                    {"EventParameter1", $"Value-{_random.Next(100, 900000)}" },
+                    {"EventParameter2", $"Value-{_random.Next(100, 900000)}"  },
+                    {"EventParameter3", $"Value-{_random.Next(100, 900000)}"  },
+                    {"EventParameterX", $"Value-{_random.Next(100, 900000)}"  }
+                };
+                    await Task.Delay(sleepValue);
+                    var payload = new PostPayload { Properties = properties, Name = eventName };
+                    await CallApi(payload);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"LogEvent loop exception, iteration {i}: {ex.Message}");
+                }
             }
         }
          
-        private async Task<ApiResponse> CallApi(string eventName)
+        private async Task<ApiResponse> CallApi(PostPayload payload)
         {
             ApiResponse requestResponse = null;
-            HttpResponseMessage response = await _client.PostAsJsonAsync("AppInsights/event", eventName); 
+            HttpResponseMessage response = await _client.PostAsJsonAsync("AppInsights/event", payload); 
             response.EnsureSuccessStatusCode();
             // Deserialize the ApiResponse from the response body.
             requestResponse = await response.Content.ReadAsAsync<ApiResponse>();
             
             return requestResponse;
+        }
+
+        private void InitUserIds()
+        {
+            for (int i = 1; i < 37; i++){
+                _userIds.Add(i, Guid.NewGuid().ToString());
+            }
         }
 
         private void InitEventNames()

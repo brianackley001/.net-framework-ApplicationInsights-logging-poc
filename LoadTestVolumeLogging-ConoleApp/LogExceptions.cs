@@ -13,10 +13,12 @@ namespace LoadTestVolumeLogging_ConsoleApp
         private readonly HttpClient _client = new HttpClient();
         private Random _random;
         private Dictionary<int, string> _exceptionNames = new Dictionary<int, string>();
+        private Dictionary<int, string> _userIds = new Dictionary<int, string>();
 
         public async Task DoWork(int count)
         {
-            InitExceptionReasons();
+            InitExceptionReasons(); 
+            InitUserIds();
 
             _random = new Random();
             _client.BaseAddress = new Uri("https://localhost:7203/");
@@ -24,13 +26,22 @@ namespace LoadTestVolumeLogging_ConsoleApp
             _client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
+            
+
             for (int i = 0; i < count; i++)
             {
-                var sleepValue = _random.Next(750, 12000);
-                await Task.Delay(sleepValue);
+                try
+                {
+                    var sleepValue = _random.Next(750, 1500);
+                    await Task.Delay(sleepValue);
 
-                var exObj = GetExceptionItem(i);
-                await CallApi(exObj);
+                    var exObj = GetExceptionItem(i);
+                    await CallApi(exObj);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"LogException loop exception, iteration {i}: {ex.Message}");
+                }
             }
         }
 
@@ -49,36 +60,47 @@ namespace LoadTestVolumeLogging_ConsoleApp
         private ExceptionObject GetExceptionItem(int loopCounter)
         {
             ExceptionObject exObj = new ExceptionObject();
-            if(loopCounter % 5 == 0)
+
+            var randomIndex = _random.Next(1, 36);
+            var userId = _userIds.ElementAt(randomIndex).Value;
+
+            if (loopCounter % 7 == 0)
             {
                 exObj.Exception = new NullReferenceException($"Null Reference Load Test Exception, loop iteration {loopCounter}");
                 exObj.Properties = new Dictionary<string, string>
                 {
                     {"ID", loopCounter.ToString() },
                     {"Name", loopCounter.ToString() },
-                    {"LoadTest", "true" }
+                    {"LoadTest", "true" },
+                    {"UserId", $"{userId}" },
+                    {"ExceptionParameter1", $"Value-{_random.Next(100, 900000)}"  },
+                    {"ExceptionParameter2", $"Value-{_random.Next(100, 900000)}" },
+                    {"ExceptionParameter3", $"Value-{_random.Next(100, 900000)}"  },
+                    {"ExceptionParameterX", $"Value-{_random.Next(100, 900000)}"  }
                 };
             }
-            if(loopCounter % 17 == 0 && loopCounter % 5 != 0)
+            if(loopCounter % 9== 0 && loopCounter % 7 != 0)
             {
                 exObj.Exception = new ArgumentOutOfRangeException($"Argument Out Of Range Exception Load Test Exception, loop iteration {loopCounter}");
                 exObj.Properties = new Dictionary<string, string>
                 {
                     {"ID", loopCounter.ToString() },
+                    {"UserId", $"{userId}" },
                     {"Arg1", _random.Next(234, 12999999).ToString() },
                     {"Arg2", $"Test-String-{_random.Next(1, 500)}"},
                     {"Arg3", $"ProfileExpectedValue-{_random.Next(10000, 500000)}"},
                     {"LoadTest", "true" }
                 };
             }
-            if (loopCounter % 17 != 0 && loopCounter % 5 != 0)
+            if (loopCounter % 9 != 0 && loopCounter % 7 != 0)
             {
-                var randomIndex = _random.Next(1, 12);
+                randomIndex = _random.Next(1, 12);
                 var bizExceptionName = _exceptionNames.ElementAt(randomIndex).Value;
                 exObj.Exception = new ApplicationException($"{bizExceptionName}, loop iteration {loopCounter}");
                 exObj.Properties = new Dictionary<string, string>
                 {
                     {"ID", loopCounter.ToString() },
+                    {"UserId", $"{userId}" },
                     {"Parameter1", _random.Next(234, 12999999).ToString() },
                     {"Parameter2", $"Vendor-String-{_random.Next(1, 500)}"},
                     {"Parameter3", $"VendorExpectedValue-{_random.Next(10000, 500000)}"},
@@ -90,6 +112,14 @@ namespace LoadTestVolumeLogging_ConsoleApp
             return exObj;
         }
 
+
+        private void InitUserIds()
+        {
+            for (int i = 1; i < 37; i++)
+            {
+                _userIds.Add(i, Guid.NewGuid().ToString());
+            }
+        }
         private void InitExceptionReasons()
         {
             _exceptionNames.Add(1, "Invalid Business Rule X");

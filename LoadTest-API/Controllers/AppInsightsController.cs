@@ -30,20 +30,20 @@ namespace LoadTest_API.Controllers
 
 
         [HttpPost("event")]
-        public async Task<IActionResult> PostEvent([FromBody] string eventText)
+        public async Task<IActionResult> PostEvent([FromBody] PostPayload payload)
         {
             try
             {
                 await Task.Run(() =>
                 {
-                    _telemetryClient.TrackEvent(eventText);
+                    _telemetryClient.TrackEvent(payload.Name, payload.Properties);
                 });
 
                 return Ok(new ApiResponse
                 {
                     Id = _random.Next(13, 50000000).ToString(),
                     Success = true,
-                    Message = $"PostEvent: {eventText}"
+                    Message = $"PostEvent: {payload.Name}"
                 });
             }
             catch (Exception ex)
@@ -55,20 +55,20 @@ namespace LoadTest_API.Controllers
         }
 
         [HttpPost("trace")]
-        public async Task<IActionResult> PostTrace([FromBody] string traceText)
+        public async Task<IActionResult> PostTrace([FromBody] PostPayload payload)
         {
             try
             {
                 await Task.Run(() =>
                 {
-                    _telemetryClient.TrackTrace(traceText);
+                    _telemetryClient.TrackTrace(payload.Name, payload.Properties);
                 });
 
                 return Ok(new ApiResponse
                 {
                     Id = _random.Next(13, 50000000).ToString(),
                     Success = true,
-                    Message = $"PostTrace: {traceText}"
+                    Message = $"PostTrace: {payload.Name}"
                 });
             }
             catch (Exception ex)

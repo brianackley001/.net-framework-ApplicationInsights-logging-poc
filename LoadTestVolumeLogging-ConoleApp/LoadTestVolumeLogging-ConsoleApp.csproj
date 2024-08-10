@@ -75,6 +75,7 @@
     <Compile Include="LogPageView.cs" />
     <Compile Include="LogRequest.cs" />
     <Compile Include="LogTrace.cs" />
+    <Compile Include="PostPayload.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

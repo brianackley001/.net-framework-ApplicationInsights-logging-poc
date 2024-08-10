@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp-Log4Net_4.8_Framewor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp-AppInsights-SDK_4.8_Framework", "WebApp-AppInsights-SDK_4.8_Framework\WebApp-AppInsights-SDK_4.8_Framework.csproj", "{81449BBD-B915-4EDF-B483-377E62ED4CAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadTest-API", "LoadTest-API\LoadTest-API.csproj", "{FBF99809-885C-42D1-A54E-BE9C8A103884}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadTest-API", "LoadTest-API\LoadTest-API.csproj", "{FBF99809-885C-42D1-A54E-BE9C8A103884}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp-NLog_4.8_Framework", "WebApp-NLog_4.8_Framework\WebApp-NLog_4.8_Framework.csproj", "{60A74B6A-BA88-4A0B-8E80-31C9B137E296}"
 EndProject
