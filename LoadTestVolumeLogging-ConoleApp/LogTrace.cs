@@ -30,7 +30,7 @@ namespace LoadTestVolumeLogging_ConsoleApp
             {
                 try
                 {
-                    var sleepValue = _random.Next(500, 1250);
+                    var sleepValue = _random.Next(125, 450);
                     var requestValue = _random.Next(1, 7500);
                     var randomIndex = _random.Next(1, 36);
                     var userId = _userIds.ElementAt(randomIndex).Value;

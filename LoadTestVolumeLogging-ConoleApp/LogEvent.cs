@@ -37,7 +37,7 @@ namespace LoadTestVolumeLogging_ConsoleApp
                     var eventName = _eventNames.ElementAt(randomIndex).Value;
                     randomIndex = _random.Next(1, 36);
                     var userId = _userIds.ElementAt(randomIndex).Value;
-                    var sleepValue = _random.Next(400, 1275);
+                    var sleepValue = _random.Next(100, 375);
                     var properties = new Dictionary<string, string>
                 {
                     {"UserId", $"{userId}" },

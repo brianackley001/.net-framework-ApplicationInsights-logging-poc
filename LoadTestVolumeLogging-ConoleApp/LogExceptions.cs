@@ -32,7 +32,7 @@ namespace LoadTestVolumeLogging_ConsoleApp
             {
                 try
                 {
-                    var sleepValue = _random.Next(750, 1500);
+                    var sleepValue = _random.Next(250, 400);
                     await Task.Delay(sleepValue);
 
                     var exObj = GetExceptionItem(i);

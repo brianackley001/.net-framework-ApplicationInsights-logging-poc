@@ -43,19 +43,24 @@ namespace LoadTestVolumeLogging_ConsoleApp
         }
         static async Task ExcuteTaskCollection()
         {
-            var logEvent = new LogEvent();
-            var logRequest = new LogRequest();
-            var logTrace = new LogTrace();
-            var logException = new LogExceptions();
-            var logPageView = new LogPageView();
 
             var loopCounter = 1000000;
             var batchSize = 5000;
             var itemsProcessed = 0;
+            var tasks = new List<Task>();
 
             while (itemsProcessed < loopCounter)
             {
-                var tasks = new List<Task>();
+                var logEvent = new LogEvent();
+                var logRequest = new LogRequest();
+                var logTrace = new LogTrace();
+                var logException = new LogExceptions();
+                var logPageView = new LogPageView();
+
+                if(tasks.Count > 0)
+                {
+                    tasks.Clear();
+                }
                 tasks.Add(logEvent.DoWork(batchSize));
                 tasks.Add(logRequest.DoWork(batchSize));
                 tasks.Add(logTrace.DoWork(batchSize));
