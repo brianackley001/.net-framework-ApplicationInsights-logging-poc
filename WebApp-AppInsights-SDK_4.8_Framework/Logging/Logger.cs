@@ -1,7 +1,11 @@
-﻿using Microsoft.ApplicationInsights;
+﻿using Microsoft.Ajax.Utilities;
+using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Web.Configuration;
 
 
 namespace WebApp_AppInsights_SDK_4._8_Framework.Logging
@@ -9,12 +13,15 @@ namespace WebApp_AppInsights_SDK_4._8_Framework.Logging
     public class Logger: ILogger
     {
         private readonly TelemetryClient _telemetryClient;
+        private readonly TelemetryConfiguration _telemetryConfiguration;
 
-        public Logger(TelemetryClient telemetryClient)
+        public Logger(TelemetryClient telemetryClient, TelemetryConfiguration telemetryConfiguration)
         {
-            if(telemetryClient == null)
+            if(telemetryClient == null || _telemetryConfiguration == null)
             {
-                _telemetryClient = new TelemetryClient();
+                _telemetryClient = new TelemetryClient(); 
+                this._telemetryConfiguration = telemetryConfiguration;
+                this._telemetryClient.TelemetryConfiguration.ConnectionString = WebConfigurationManager.AppSettings["applicationInsightsConnectionString"];
             }
             else
             {

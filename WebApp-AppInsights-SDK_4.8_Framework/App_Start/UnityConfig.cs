@@ -1,3 +1,4 @@
+using Microsoft.ApplicationInsights.Channel;
 using System.Web.Mvc;
 using Unity;
 using Unity.Mvc5;
@@ -16,6 +17,7 @@ namespace WebApp_AppInsights_SDK_4._8_Framework
 
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<ILogger, Logger>();
+            container.RegisterType<ITelemetryChannel, ITelemetryChannel>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
